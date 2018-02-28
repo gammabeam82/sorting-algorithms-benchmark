@@ -35,7 +35,6 @@ class OddEvenSort implements SortInterface
         return $data;
     }
 
-
     /**
      * @param int $left
      * @param int $right
