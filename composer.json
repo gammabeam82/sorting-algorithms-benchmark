@@ -1,5 +1,5 @@
 {
-    "name": "gammabeam82/benchmarks",
+    "name": "gammabeam82/benchmark",
     "type": "project",
     "license": "MIT",
     "authors": [
@@ -8,6 +8,12 @@
             "email": "gammabeam82@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": { "Gammabeam82\\Benchmark\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Tests\\": "tests/" }
+    },
     "require": {},
     "require-dev": {
         "phpunit/phpunit": "^7.0",
