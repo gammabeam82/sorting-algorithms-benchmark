@@ -20,15 +20,15 @@ class OddEvenSort implements SortInterface
 
         $length = count($data) - 1;
 
-        while(false === $this->sorted) {
+        while (false === $this->sorted) {
             $this->sorted = true;
 
-            for($i = 1; $i < $length; $i += 2) {
-                $this->swap($data[$i], $data[$i+1], $data[$i+1]);
+            for ($i = 1; $i < $length; $i += 2) {
+                $this->swap($data[$i], $data[$i + 1], $data[$i + 1]);
             }
 
-            for($i = 0; $i < $length; $i += 2) {
-                $this->swap($data[$i], $data[$i+1], $data[$i+1]);
+            for ($i = 0; $i < $length; $i += 2) {
+                $this->swap($data[$i], $data[$i + 1], $data[$i + 1]);
             }
         }
 
@@ -43,7 +43,7 @@ class OddEvenSort implements SortInterface
      */
     private function swap(int &$left, int &$right, int $tmp): void
     {
-        if($left > $right) {
+        if ($left > $right) {
             $right = $left;
             $left = $tmp;
 
