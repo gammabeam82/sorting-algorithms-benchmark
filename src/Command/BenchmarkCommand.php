@@ -99,6 +99,8 @@ class BenchmarkCommand extends Command
     }
 
     /**
+     * @param SymfonyStyle $io
+     *
      * @param array $data
      */
     private function showTable(SymfonyStyle $io, array $data): void
