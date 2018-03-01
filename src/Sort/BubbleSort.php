@@ -4,6 +4,8 @@ namespace Gammabeam82\Benchmark\Sort;
 
 class BubbleSort implements SortInterface
 {
+    public const NAME = 'BubbleSort';
+
     /**
      * @param array $data
      *
@@ -44,6 +46,6 @@ class BubbleSort implements SortInterface
      */
     public function getAlgorithmName(): string
     {
-        return 'BubbleSort';
+        return self::NAME;
     }
 }

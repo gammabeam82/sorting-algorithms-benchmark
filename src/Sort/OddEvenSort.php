@@ -4,10 +4,12 @@ namespace Gammabeam82\Benchmark\Sort;
 
 class OddEvenSort implements SortInterface
 {
+    public const NAME = 'OddEvenSort';
+
     /**
      * @var bool
      */
-    private $sorted;
+    private $swapped;
 
     /**
      * @param array $data
@@ -16,12 +18,12 @@ class OddEvenSort implements SortInterface
      */
     public function sort(array $data): array
     {
-        $this->sorted = false;
+        $this->swapped = true;
 
         $length = count($data) - 1;
 
-        while (false === $this->sorted) {
-            $this->sorted = true;
+        while (false !== $this->swapped) {
+            $this->swapped = false;
 
             for ($i = 1; $i < $length; $i += 2) {
                 $this->swap($data[$i], $data[$i + 1], $data[$i + 1]);
@@ -46,7 +48,7 @@ class OddEvenSort implements SortInterface
             $right = $left;
             $left = $tmp;
 
-            $this->sorted = false;
+            $this->swapped = true;
         }
     }
 
@@ -55,6 +57,6 @@ class OddEvenSort implements SortInterface
      */
     public function getAlgorithmName(): string
     {
-        return 'OddEvenSort';
+        return self::NAME;
     }
 }

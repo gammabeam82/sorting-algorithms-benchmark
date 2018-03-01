@@ -103,16 +103,18 @@ class BenchmarkCommand extends Command
      */
     private function showTable(SymfonyStyle $io, array $data): void
     {
-        $place = 1;
+        $position = 1;
         $results = [];
+
+        $fastest = reset($data);
 
         foreach ($data as $name => $duration) {
             $results[] = [
-                $place, $name, $duration
+                $position, $name, $duration, round($duration / $fastest, 3)
             ];
-            $place++;
+            $position++;
         }
 
-        $io->table(['N', 'Algorithm', 'Duration (ms)'], $results);
+        $io->table(['Pos.', 'Algorithm', 'Duration (ms)', 'Performance'], $results);
     }
 }

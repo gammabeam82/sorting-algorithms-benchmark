@@ -4,13 +4,7 @@ namespace Gammabeam82\Benchmark\Sort;
 
 class CocktailShakerSort implements SortInterface
 {
-    private const ASC = 'asc';
-    private const DESC = 'desc';
-
-    /**
-     * @var bool
-     */
-    private $swapped;
+    public const NAME = 'CocktailShakerSort';
 
     /**
      * @param array $data
@@ -23,54 +17,34 @@ class CocktailShakerSort implements SortInterface
         $end = count($data) - 1;
 
         do {
-            $this->swapped = false;
+            $swapped = false;
 
             for ($i = $start; $i < $end; $i++) {
-                $this->swap($data[$i], $data[$i + 1], $data[$i + 1], self::ASC);
+                if ($data[$i] > $data[$i + 1]) {
+                    list($data[$i], $data[$i + 1]) = [$data[$i + 1], $data[$i]];
+                    $swapped = true;
+                }
             }
 
             $end--;
 
-            if (false === $this->swapped) {
+            if (false === $swapped) {
                 break;
             }
 
-            $this->swapped = false;
+            $swapped = false;
 
             for ($i = $end; $i > $start; $i--) {
-                $this->swap($data[$i - 1], $data[$i], $data[$i - 1], self::DESC);
+                if ($data[$i] < $data[$i - 1]) {
+                    list($data[$i], $data[$i - 1]) = [$data[$i - 1], $data[$i]];
+                    $swapped = true;
+                }
             }
 
             $start++;
-        } while (false !== $this->swapped);
+        } while (false !== $swapped);
 
         return $data;
-    }
-
-    /**
-     * @param int $left
-     * @param int $right
-     * @param int $tmp
-     * @param string $dir
-     */
-    private function swap(int &$left, int &$right, int $tmp, string $dir): void
-    {
-        if ($left > $right) {
-            switch ($dir) {
-                case self::ASC:
-                    $right = $left;
-                    $left = $tmp;
-                    break;
-                case self::DESC:
-                    $left = $right;
-                    $right = $tmp;
-                    break;
-                default:
-                    throw new \LogicException();
-            }
-
-            $this->swapped = true;
-        }
     }
 
     /**
@@ -78,6 +52,6 @@ class CocktailShakerSort implements SortInterface
      */
     public function getAlgorithmName(): string
     {
-        return 'CocktailShakerSort';
+        return self::NAME;
     }
 }

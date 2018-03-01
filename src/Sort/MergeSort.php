@@ -4,6 +4,8 @@ namespace Gammabeam82\Benchmark\Sort;
 
 class MergeSort implements SortInterface
 {
+    public const NAME = 'MergeSort';
+
     /**
      * @param array $data
      *
@@ -55,6 +57,6 @@ class MergeSort implements SortInterface
      */
     public function getAlgorithmName(): string
     {
-        return 'MergeSort';
+        return self::NAME;
     }
 }
