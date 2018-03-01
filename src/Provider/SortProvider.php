@@ -5,6 +5,7 @@ namespace Gammabeam82\Benchmark\Provider;
 use Countable;
 use Gammabeam82\Benchmark\Sort\BubbleSort;
 use Gammabeam82\Benchmark\Sort\CocktailShakerSort;
+use Gammabeam82\Benchmark\Sort\CountingSort;
 use Gammabeam82\Benchmark\Sort\InsertionSort;
 use Gammabeam82\Benchmark\Sort\MergeSort;
 use Gammabeam82\Benchmark\Sort\OddEvenSort;
@@ -24,6 +25,7 @@ class SortProvider implements Iterator, Countable
     private $sorts = [
         BubbleSort::class,
         CocktailShakerSort::class,
+        CountingSort::class,
         InsertionSort::class,
         MergeSort::class,
         OddEvenSort::class
