@@ -17,9 +17,9 @@ class MergeSort implements SortInterface
             return $data;
         }
 
-        $pivot = floor(count($data) / 2);
-        $left = array_slice($data, 0, $pivot);
-        $right = array_slice($data, $pivot);
+        $middle = floor(count($data) / 2);
+        $left = array_slice($data, 0, $middle);
+        $right = array_slice($data, $middle);
 
         return $this->merge(
             $this->sort($left),
@@ -40,13 +40,16 @@ class MergeSort implements SortInterface
         $indexRight = 0;
 
         while ($indexLeft < count($left) && $indexRight < count($right)) {
+
             if ($left[$indexLeft] < $right[$indexRight]) {
                 $result[] = $left[$indexLeft];
                 $indexLeft++;
-            } else {
-                $result[] = $right[$indexRight];
-                $indexRight++;
+
+                continue;
             }
+
+            $result[] = $right[$indexRight];
+            $indexRight++;
         }
 
         return array_merge($result, array_slice($left, $indexLeft), array_slice($right, $indexRight));
