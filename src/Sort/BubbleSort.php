@@ -38,4 +38,12 @@ class BubbleSort implements SortInterface
 
         return $data;
     }
+
+    /**
+     * @return string
+     */
+    public function getAlgorithmName(): string
+    {
+        return 'BubbleSort';
+    }
 }

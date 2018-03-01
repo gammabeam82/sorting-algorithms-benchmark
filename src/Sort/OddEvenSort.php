@@ -49,4 +49,12 @@ class OddEvenSort implements SortInterface
             $this->sorted = false;
         }
     }
+
+    /**
+     * @return string
+     */
+    public function getAlgorithmName(): string
+    {
+        return 'OddEvenSort';
+    }
 }

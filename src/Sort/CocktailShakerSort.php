@@ -72,4 +72,12 @@ class CocktailShakerSort implements SortInterface
             $this->swapped = true;
         }
     }
+
+    /**
+     * @return string
+     */
+    public function getAlgorithmName(): string
+    {
+        return 'CocktailShakerSort';
+    }
 }

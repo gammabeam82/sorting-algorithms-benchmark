@@ -49,4 +49,12 @@ class MergeSort implements SortInterface
 
         return array_merge($result, array_slice($left, $indexLeft), array_slice($right, $indexRight));
     }
+
+    /**
+     * @return string
+     */
+    public function getAlgorithmName(): string
+    {
+        return 'MergeSort';
+    }
 }
