@@ -24,7 +24,6 @@ class QuickSort implements SortInterface
         $right = [];
 
         for ($i = 1; $i < $length; $i++) {
-
             $value = $data[$i];
 
             if ($value < $pivot) {

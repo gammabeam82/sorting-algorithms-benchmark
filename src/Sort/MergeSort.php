@@ -40,7 +40,6 @@ class MergeSort implements SortInterface
         $indexRight = 0;
 
         while ($indexLeft < count($left) && $indexRight < count($right)) {
-
             if ($left[$indexLeft] < $right[$indexRight]) {
                 $result[] = $left[$indexLeft];
                 $indexLeft++;

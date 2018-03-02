@@ -19,7 +19,7 @@ abstract class AbstractSortTest extends TestCase
 
     public function setUp()
     {
-        $this->data = [8, 11, 2, 4, 3, 9, 7, 5, 4, 2, 3, 2, 1, 42, 15, 9, 0];
+        $this->data = [-1, 8, 11, 2, 4, 3, 9, 7, 5, -4, 2, 3, 2, 1, 42, 15, 9, 0];
     }
 
     protected function setSortObject(SortInterface $sort)

@@ -5,11 +5,14 @@ namespace Gammabeam82\Benchmark\Provider;
 use Countable;
 use Gammabeam82\Benchmark\Sort\BubbleSort;
 use Gammabeam82\Benchmark\Sort\CocktailShakerSort;
+use Gammabeam82\Benchmark\Sort\CombSort;
 use Gammabeam82\Benchmark\Sort\CountingSort;
+use Gammabeam82\Benchmark\Sort\GnomeSort;
 use Gammabeam82\Benchmark\Sort\InsertionSort;
 use Gammabeam82\Benchmark\Sort\MergeSort;
 use Gammabeam82\Benchmark\Sort\OddEvenSort;
 use Gammabeam82\Benchmark\Sort\QuickSort;
+use Gammabeam82\Benchmark\Sort\SelectionSort;
 use Gammabeam82\Benchmark\Sort\SortInterface;
 use Iterator;
 
@@ -26,10 +29,14 @@ class SortProvider implements Iterator, Countable
     private $sorts = [
         BubbleSort::class,
         CocktailShakerSort::class,
+        CombSort::class,
         CountingSort::class,
+        GnomeSort::class,
         InsertionSort::class,
         MergeSort::class,
         OddEvenSort::class,
+          SelectionSort::class,
+        #StoogeSort::class, # VERY SLOW!
         QuickSort::class
     ];
 
