@@ -35,7 +35,7 @@ class SortProvider implements Iterator, Countable
         InsertionSort::class,
         MergeSort::class,
         OddEvenSort::class,
-          SelectionSort::class,
+        SelectionSort::class,
         #StoogeSort::class, # VERY SLOW!
         QuickSort::class
     ];

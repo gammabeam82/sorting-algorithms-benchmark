@@ -107,16 +107,44 @@ class BenchmarkCommand extends Command
     {
         $position = 1;
         $results = [];
+        $prev = 0;
 
         $fastest = reset($data);
 
         foreach ($data as $name => $duration) {
+            if (1 === $position) {
+                $diff = '-';
+                $fDiff = '-';
+            } else {
+                $diff = $this->getPercentageDiff($duration, $prev);
+                $fDiff = $this->getPercentageDiff($duration, $fastest);
+            }
+
             $results[] = [
-                $position, $name, $duration, round($duration / $fastest, 3)
+                $position, $name, $duration, round($duration / $fastest, 3), $diff, $fDiff
             ];
+
+            $prev = $duration;
             $position++;
         }
 
-        $io->table(['Pos.', 'Algorithm', 'Duration (ms)', 'Performance'], $results);
+        $io->table(
+            ['Pos.', 'Algorithm', 'Duration (ms)', 'Performance', 'Slower than previous', 'Slower than fastest'],
+            $results
+        );
+    }
+
+    /**
+     * @param int $new
+     * @param int $old
+     *
+     * @return string
+     */
+    private function getPercentageDiff(int $newValue, int $oldValue): string
+    {
+        return sprintf(
+            "%s%%",
+            abs(ceil((($oldValue - $newValue) / $oldValue) * 100))
+        );
     }
 }
