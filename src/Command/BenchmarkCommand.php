@@ -100,7 +100,6 @@ class BenchmarkCommand extends Command
 
     /**
      * @param SymfonyStyle $io
-     *
      * @param array $data
      */
     private function showTable(SymfonyStyle $io, array $data): void
@@ -135,8 +134,8 @@ class BenchmarkCommand extends Command
     }
 
     /**
-     * @param int $new
-     * @param int $old
+     * @param int $newValue
+     * @param int $oldValue
      *
      * @return string
      */
