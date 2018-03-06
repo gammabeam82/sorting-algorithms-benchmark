@@ -12,8 +12,10 @@ use Gammabeam82\Benchmark\Sort\InsertionSort;
 use Gammabeam82\Benchmark\Sort\MergeSort;
 use Gammabeam82\Benchmark\Sort\OddEvenSort;
 use Gammabeam82\Benchmark\Sort\QuickSort;
+use Gammabeam82\Benchmark\Sort\RadixSort;
 use Gammabeam82\Benchmark\Sort\SelectionSort;
 use Gammabeam82\Benchmark\Sort\SortInterface;
+use Gammabeam82\Benchmark\Sort\StupidSort;
 use Iterator;
 
 class SortProvider implements Iterator, Countable
@@ -35,8 +37,10 @@ class SortProvider implements Iterator, Countable
         InsertionSort::class,
         MergeSort::class,
         OddEvenSort::class,
+        RadixSort::class,
         SelectionSort::class,
         #StoogeSort::class, # VERY SLOW!
+        StupidSort::class,
         QuickSort::class
     ];
 
