@@ -40,7 +40,7 @@ class RadixSort implements SortInterface
      *
      * @return array
      */
-    public function radixSort(array $data): array
+    private function radixSort(array $data): array
     {
         $max =array_reduce($data, function ($carry, $item) {
             return $item > $carry ? $item : $carry;
