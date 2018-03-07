@@ -7,6 +7,7 @@ use Gammabeam82\Benchmark\Sort\BubbleSort;
 use Gammabeam82\Benchmark\Sort\CocktailShakerSort;
 use Gammabeam82\Benchmark\Sort\CombSort;
 use Gammabeam82\Benchmark\Sort\CountingSort;
+use Gammabeam82\Benchmark\Sort\FlashSort;
 use Gammabeam82\Benchmark\Sort\GnomeSort;
 use Gammabeam82\Benchmark\Sort\InsertionSort;
 use Gammabeam82\Benchmark\Sort\MergeSort;
@@ -36,6 +37,7 @@ class SortProvider implements Iterator, Countable, SortProviderInterface
         CountingSort::class,
         GnomeSort::class,
         InsertionSort::class,
+        FlashSort::class,
         MergeSort::class,
         OddEvenSort::class,
         RadixSort::class,
