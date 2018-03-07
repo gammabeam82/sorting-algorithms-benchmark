@@ -14,6 +14,7 @@ use Gammabeam82\Benchmark\Sort\OddEvenSort;
 use Gammabeam82\Benchmark\Sort\QuickSort;
 use Gammabeam82\Benchmark\Sort\RadixSort;
 use Gammabeam82\Benchmark\Sort\SelectionSort;
+use Gammabeam82\Benchmark\Sort\ShellSort;
 use Gammabeam82\Benchmark\Sort\SortInterface;
 use Gammabeam82\Benchmark\Sort\StupidSort;
 use Iterator;
@@ -39,6 +40,7 @@ class SortProvider implements Iterator, Countable, SortProviderInterface
         OddEvenSort::class,
         RadixSort::class,
         SelectionSort::class,
+        ShellSort::class,
         #StoogeSort::class, # VERY SLOW!
         StupidSort::class,
         QuickSort::class
