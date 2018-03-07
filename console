@@ -5,12 +5,19 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use Gammabeam82\Benchmark\Command\BenchmarkCommand;
+use Gammabeam82\Benchmark\Provider\DataProvider;
+use Gammabeam82\Benchmark\Provider\SortProvider;
 use Symfony\Component\Console\Application;
 
 set_time_limit(600);
 
+$command = new BenchmarkCommand();
+$command
+    ->setDataProvider(new DataProvider())
+    ->setSortProvider(new SortProvider());
+
 $app = new Application();
-$app->add(new BenchmarkCommand());
+$app->add($command);
 
 /** @noinspection PhpUnhandledExceptionInspection */
 $app->run();

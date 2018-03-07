@@ -2,8 +2,9 @@
 
 namespace Gammabeam82\Benchmark\Command;
 
-use Gammabeam82\Benchmark\Provider\DataProvider;
-use Gammabeam82\Benchmark\Provider\SortProvider;
+use Gammabeam82\Benchmark\Provider\DataProviderInterface;
+use Gammabeam82\Benchmark\Provider\SortProviderInterface;
+use Gammabeam82\Benchmark\Sort\SortInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -16,14 +17,38 @@ class BenchmarkCommand extends Command
     private const TOTAL = 100;
 
     /**
-     * @var DataProvider
+     * @var DataProviderInterface
      */
     private $dataProvider;
 
     /**
-     * @var SortProvider
+     * @var SortProviderInterface
      */
     private $sortProvider;
+
+    /**
+     * @param DataProviderInterface $dataProvider
+     *
+     * @return BenchmarkCommand
+     */
+    public function setDataProvider(DataProviderInterface $dataProvider): BenchmarkCommand
+    {
+        $this->dataProvider = $dataProvider;
+
+        return $this;
+    }
+
+    /**
+     * @param SortProviderInterface $sortProvider
+     *
+     * @return BenchmarkCommand
+     */
+    public function setSortProvider(SortProviderInterface $sortProvider): BenchmarkCommand
+    {
+        $this->sortProvider = $sortProvider;
+
+        return $this;
+    }
 
     /**
      * @inheritdoc
@@ -46,9 +71,6 @@ class BenchmarkCommand extends Command
      */
     protected function initialize(InputInterface $input, OutputInterface $output)
     {
-        $this->dataProvider = new DataProvider();
-        $this->sortProvider = new SortProvider();
-
         $this->dataProvider->generateData();
     }
 
@@ -74,6 +96,7 @@ class BenchmarkCommand extends Command
         $stopwatch->start('benchmark');
 
         foreach ($this->sortProvider as $sort) {
+            /** @var SortInterface $sort*/
             $event = $sort->getAlgorithmName();
 
             $stopwatch->start($event);

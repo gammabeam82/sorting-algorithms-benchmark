@@ -2,7 +2,7 @@
 
 namespace Gammabeam82\Benchmark\Provider;
 
-class DataProvider
+class DataProvider implements DataProviderInterface
 {
     private const SIZE = 500;
 

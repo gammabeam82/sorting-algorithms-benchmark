@@ -18,7 +18,7 @@ use Gammabeam82\Benchmark\Sort\SortInterface;
 use Gammabeam82\Benchmark\Sort\StupidSort;
 use Iterator;
 
-class SortProvider implements Iterator, Countable
+class SortProvider implements Iterator, Countable, SortProviderInterface
 {
     /**
      * @var int
